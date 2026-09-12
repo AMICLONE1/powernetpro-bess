@@ -27,7 +27,7 @@ export function CTABand({
                 <Button href="/free-audit" size="lg" className="relative">Get your free quote <ArrowRight /></Button>
               </div>
               <WhatsAppButton
-                label="Message on WhatsApp"
+                label="Chat on WhatsApp"
                 prefilled="Hi PowerNetPro, I'd like a free energy audit."
                 variant="ghost"
                 className="border-white/25 text-white hover:border-white/50"

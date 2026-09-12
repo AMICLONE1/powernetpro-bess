@@ -8,6 +8,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { StickyMobileCTA } from "@/components/layout/StickyMobileCTA";
 import { BackToTop } from "@/components/layout/BackToTop";
+import { SmoothCursor } from "@/components/motion/SmoothCursor";
 
 // Body: Inter. Display headlines: Space Grotesk (modern geometric sans — clean,
 // distinctive and highly legible at every size).
@@ -76,6 +77,7 @@ export default function RootLayout({
         <Footer />
         <StickyMobileCTA />
         <BackToTop />
+        <SmoothCursor />
 
         {/* GA4 — activates only when NEXT_PUBLIC_GA_ID is set (TRD 7.2). */}
         {gaId && (

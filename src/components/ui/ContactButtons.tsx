@@ -23,7 +23,7 @@ export function PhoneIcon({ className }: { className?: string }) {
 const chip = "inline-flex h-11 items-center justify-center gap-2 rounded-pill px-5 font-semibold transition-all duration-200 ease-smooth";
 
 export function WhatsAppButton({
-  label = "WhatsApp",
+  label = "Chat on WhatsApp",
   prefilled,
   className,
   variant = "solid",

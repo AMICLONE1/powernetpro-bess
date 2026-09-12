@@ -41,7 +41,7 @@ export default function ContactPage() {
                   </div>
                 </dl>
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                  <WhatsAppButton label="WhatsApp us" prefilled="Hi PowerNetPro, I have a question." />
+                  <WhatsAppButton label="Chat on WhatsApp" prefilled="Hi PowerNetPro, I have a question." />
                   <CallButton label="Call now" />
                 </div>
               </div>

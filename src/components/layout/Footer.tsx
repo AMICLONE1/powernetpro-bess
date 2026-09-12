@@ -16,7 +16,7 @@ export function Footer() {
             </p>
             <div className="mt-6 space-y-1.5 text-body">
               <a href={telLink()} className="block text-white/85 hover:text-white">{siteConfig.phone.display}</a>
-              <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="block text-white/85 hover:text-white">WhatsApp us</a>
+              <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="block text-white/85 hover:text-white">Chat on WhatsApp</a>
               <a href={`mailto:${siteConfig.email.info}`} className="block text-white/85 hover:text-white">{siteConfig.email.info}</a>
               <a href={`mailto:${siteConfig.email.sales}`} className="block text-white/85 hover:text-white">{siteConfig.email.sales}</a>
             </div>

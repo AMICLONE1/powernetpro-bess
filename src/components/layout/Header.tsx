@@ -14,7 +14,18 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [solutionsOpen, setSolutionsOpen] = useState(false);
+  // Label of the nav item the cursor is over — drives the sliding pill. When
+  // null, the pill rests on the active-route item.
+  const [hovered, setHovered] = useState<string | null>(null);
   const pathname = usePathname();
+
+  // Which nav item the sliding pill currently sits under: the hovered one, or
+  // (when nothing is hovered) the item matching the current route. The mega
+  // item ("Solutions") matches any /solutions/* route.
+  const routeLabel = mainNav.find((i) =>
+    i.hasMega ? pathname.startsWith("/solutions") : i.href === pathname,
+  )?.label ?? null;
+  const activeLabel = hovered ?? routeLabel;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 16);
@@ -55,29 +66,52 @@ export function Header() {
             the content so the dropdown (a sibling of content) never renders
             inside a backdrop-filter — which is what softened/blurred it. */}
         <div className="relative flex items-center justify-between gap-4 rounded-pill px-4 py-2.5 lg:px-5">
+          {/* Glass pill: a saturated backdrop-blur (colours glow through — the
+              glass tell) with a soft border. A faint top-edge highlight sits
+              above it to read as light catching the glass. Subtle. */}
           <div
             aria-hidden
             className={cn(
-              "pointer-events-none absolute inset-0 rounded-pill border transition-all duration-300",
+              "pointer-events-none absolute inset-0 rounded-pill border backdrop-blur-xl backdrop-saturate-150 transition-all duration-300",
               scrolled || menuOpen
-                ? "border-hairline bg-bg/85 shadow-soft backdrop-blur-xl"
-                : "border-transparent bg-bg/40 backdrop-blur-md",
+                ? "border-white/40 bg-bg/70 shadow-soft ring-1 ring-inset ring-white/20"
+                : "border-white/25 bg-bg/35 ring-1 ring-inset ring-white/10",
             )}
+          />
+          {/* Glass shine — a thin gradient highlight along the top edge. */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-x-6 top-0 h-px rounded-pill bg-gradient-to-r from-transparent via-white/60 to-transparent"
           />
           <Logo className="relative z-10" />
 
-          <nav className="relative z-10 hidden items-center gap-0.5 lg:flex" aria-label="Primary">
-            {mainNav.map((item) =>
-              item.hasMega ? (
+          {/* A single accent pill (shared layoutId) slides between items to sit
+              behind whichever is hovered — or the active route when idle. */}
+          <nav
+            className="relative z-10 hidden items-center gap-0.5 lg:flex"
+            aria-label="Primary"
+            onMouseLeave={() => setHovered(null)}
+          >
+            {mainNav.map((item) => {
+              const active = activeLabel === item.label;
+              const isCurrent = item.hasMega ? pathname.startsWith("/solutions") : pathname === item.href;
+              return item.hasMega ? (
                 <div
                   key={item.label}
                   className="relative"
-                  onMouseEnter={() => setSolutionsOpen(true)}
+                  onMouseEnter={() => { setHovered(item.label); setSolutionsOpen(true); }}
                   onMouseLeave={() => setSolutionsOpen(false)}
                 >
-                  <button className="flex items-center gap-1 rounded-full px-3.5 py-2 text-body font-medium text-ink-2 transition-colors hover:text-ink" aria-expanded={solutionsOpen}>
-                    {item.label}
-                    <svg className={cn("h-3.5 w-3.5 transition-transform", solutionsOpen && "rotate-180")} viewBox="0 0 12 12" fill="none" aria-hidden>
+                  <button
+                    className={cn(
+                      "relative flex items-center gap-1 rounded-full px-3.5 py-2 text-body font-medium transition-colors",
+                      isCurrent || active ? "text-ink" : "text-ink-2",
+                    )}
+                    aria-expanded={solutionsOpen}
+                  >
+                    {active && <NavPill />}
+                    <span className="relative z-10">{item.label}</span>
+                    <svg className={cn("relative z-10 h-3.5 w-3.5 transition-transform", solutionsOpen && "rotate-180")} viewBox="0 0 12 12" fill="none" aria-hidden>
                       <path d="M3 4.5L6 7.5 9 4.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   </button>
@@ -110,15 +144,17 @@ export function Header() {
                 <Link
                   key={item.href}
                   href={item.href}
+                  onMouseEnter={() => setHovered(item.label)}
                   className={cn(
-                    "rounded-full px-3.5 py-2 text-body font-medium transition-colors",
-                    pathname === item.href ? "text-ink" : "text-ink-2 hover:text-ink",
+                    "relative rounded-full px-3.5 py-2 text-body font-medium transition-colors",
+                    isCurrent || active ? "text-ink" : "text-ink-2",
                   )}
                 >
-                  {item.label}
+                  {active && <NavPill />}
+                  <span className="relative z-10">{item.label}</span>
                 </Link>
-              ),
-            )}
+              );
+            })}
           </nav>
 
           <div className="relative z-10 hidden lg:block">
@@ -157,6 +193,19 @@ export function Header() {
         </AnimatePresence>
       </div>
     </header>
+  );
+}
+
+/* The sliding accent pill. Every nav item renders the same layoutId, so
+   framer-motion springs it between items as the active one changes. */
+function NavPill() {
+  return (
+    <motion.span
+      layoutId="nav-pill"
+      aria-hidden
+      className="absolute inset-0 rounded-full bg-accent/10"
+      transition={{ type: "spring", stiffness: 480, damping: 36, mass: 0.8 }}
+    />
   );
 }
 
