@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 130" fill="none" role="img" aria-label="PowerNetPro">
+  <!-- Wordmark: heavy geometric sans in ink. The "o" of Power is the starburst. -->
+  <text x="0" y="98" font-family="Arial Black, Arial, Helvetica, sans-serif" font-weight="900" font-size="104" letter-spacing="-3" fill="#211D18">P</text>
+  <text x="132" y="98" font-family="Arial Black, Arial, Helvetica, sans-serif" font-weight="900" font-size="104" letter-spacing="-3" fill="#211D18">werNetPro</text>
+
+  <!-- Starburst sun forming the "o" in Power, with the lightning tail -->
+  <g transform="translate(96 74)">
+    <g fill="#F5A623">
+      <!-- spikes -->
+      <g>
+        <rect x="-2.4" y="-40" width="4.8" height="15" rx="1.4"/>
+        <rect x="-2.4" y="-40" width="4.8" height="15" rx="1.4" transform="rotate(22.5)"/>
+        <rect x="-2.4" y="-40" width="4.8" height="15" rx="1.4" transform="rotate(45)"/>
+        <rect x="-2.4" y="-40" width="4.8" height="15" rx="1.4" transform="rotate(67.5)"/>
+        <rect x="-2.4" y="-40" width="4.8" height="15" rx="1.4" transform="rotate(90)"/>
+        <rect x="-2.4" y="-40" width="4.8" height="15" rx="1.4" transform="rotate(112.5)"/>
+        <rect x="-2.4" y="-40" width="4.8" height="15" rx="1.4" transform="rotate(135)"/>
+        <rect x="-2.4" y="-40" width="4.8" height="15" rx="1.4" transform="rotate(157.5)"/>
+        <rect x="-2.4" y="-40" width="4.8" height="15" rx="1.4" transform="rotate(180)"/>
+        <rect x="-2.4" y="-40" width="4.8" height="15" rx="1.4" transform="rotate(202.5)"/>
+        <rect x="-2.4" y="-40" width="4.8" height="15" rx="1.4" transform="rotate(225)"/>
+        <rect x="-2.4" y="-40" width="4.8" height="15" rx="1.4" transform="rotate(247.5)"/>
+        <rect x="-2.4" y="-40" width="4.8" height="15" rx="1.4" transform="rotate(270)"/>
+        <rect x="-2.4" y="-40" width="4.8" height="15" rx="1.4" transform="rotate(292.5)"/>
+        <rect x="-2.4" y="-40" width="4.8" height="15" rx="1.4" transform="rotate(315)"/>
+        <rect x="-2.4" y="-40" width="4.8" height="15" rx="1.4" transform="rotate(337.5)"/>
+      </g>
+    </g>
+    <!-- ring: solar disc with a hole (reads as the "o") -->
+    <circle cx="0" cy="0" r="27" fill="#F5A623"/>
+    <circle cx="0" cy="0" r="15" fill="#F6F2EA"/>
+    <!-- lightning bolt tail sweeping right -->
+    <path d="M22 -2 L120 -8 L22 8 Z" fill="#F5A623"/>
+  </g>
+</svg>
