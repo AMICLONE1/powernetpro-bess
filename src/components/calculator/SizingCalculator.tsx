@@ -460,7 +460,7 @@ function Simulator({
 
       <div className="mt-5">
         <Button href="/free-audit" className="w-full" onClick={() => track("calculator_to_audit")}>
-          Get an exact quote — free audit <ArrowRight />
+          Get your free quote <ArrowRight />
         </Button>
       </div>
       <p className="mt-3 text-center text-caption text-ink-3">A technical starting point. The free audit confirms the exact system and price.</p>

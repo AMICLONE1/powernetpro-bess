@@ -176,7 +176,7 @@ export function HeroScene() {
           homes, societies, offices and industry across {siteConfig.address.serviceArea}.
         </p>
         <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <Button href="/free-audit" size="lg">Get your free audit <ArrowRight /></Button>
+          <Button href="/free-audit" size="lg">Get your free quote <ArrowRight /></Button>
           <Button href="/sizing-calculator" size="lg" variant="secondary">Size your system</Button>
         </div>
       </div>

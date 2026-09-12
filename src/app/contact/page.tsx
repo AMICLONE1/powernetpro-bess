@@ -50,7 +50,7 @@ export default function ContactPage() {
               <div className="flex h-full flex-col justify-center rounded-card-lg bg-forest p-8 text-white">
                 <h2 className="font-display text-h3 text-white">Ready for the numbers?</h2>
                 <p className="mt-3 text-body text-white/70">Request a free, no-obligation audit and we&apos;ll size the right system and show you the real costs and savings.</p>
-                <div className="mt-6"><Button href="/free-audit" size="lg">Get your free audit <ArrowRight /></Button></div>
+                <div className="mt-6"><Button href="/free-audit" size="lg">Get your free quote <ArrowRight /></Button></div>
               </div>
             </Reveal>
           </div>

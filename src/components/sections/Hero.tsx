@@ -36,7 +36,7 @@ export function Hero() {
           </Reveal>
           <Reveal delay={0.15}>
             <div className="mt-7 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <Button href="/free-audit" size="lg">Get your free audit <ArrowRight /></Button>
+              <Button href="/free-audit" size="lg">Get your free quote <ArrowRight /></Button>
               <Button href="/sizing-calculator" size="lg" variant="secondary">Size your system</Button>
             </div>
           </Reveal>

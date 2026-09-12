@@ -18,7 +18,7 @@ export function FAQ() {
               lead="Can't find it here? Talk to us — a real engineer will walk you through it, no sales script."
             />
             <div className="mt-7 flex flex-wrap gap-3">
-              <Button href="/free-audit">Get a free audit <ArrowRight /></Button>
+              <Button href="/free-audit">Get a free quote <ArrowRight /></Button>
               <Button href="/contact" variant="secondary">Contact us</Button>
             </div>
           </div>

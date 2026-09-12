@@ -42,7 +42,7 @@ export default function SolutionPage({ params }: { params: { segment: string } }
         media={{ src: segMedia[sol.key], alt: `${sol.label} — PowerNetPro` }}
       >
         <div className="flex flex-wrap gap-3">
-          <Button href="/free-audit" size="lg">Get your free audit <ArrowRight /></Button>
+          <Button href="/free-audit" size="lg">Get your free quote <ArrowRight /></Button>
           <Button href="/sizing-calculator" size="lg" variant="secondary">Size your system</Button>
         </div>
       </PageHero>

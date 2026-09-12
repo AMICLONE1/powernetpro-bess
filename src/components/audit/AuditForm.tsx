@@ -150,7 +150,7 @@ export function AuditForm() {
 
       <div className="flex flex-col gap-3 pt-2">
         <Button size="lg" type="submit" disabled={isSubmitting} className="w-full sm:w-auto">
-          {isSubmitting ? "Sending…" : "Request my free audit"}
+          {isSubmitting ? "Sending…" : "Get my free quote"}
         </Button>
         <p className="text-caption text-ink-2">
           No cost, no obligation. {siteConfig.responseCommitment}

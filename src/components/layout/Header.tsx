@@ -122,7 +122,7 @@ export function Header() {
           </nav>
 
           <div className="relative z-10 hidden lg:block">
-            <Button href="/free-audit" size="md">Get free audit <ArrowRight /></Button>
+            <Button href="/free-audit" size="md">Enquire now <ArrowRight /></Button>
           </div>
 
           <button
@@ -273,7 +273,7 @@ function MobileMenu({ pathname, onClose }: { pathname: string; onClose: () => vo
 
             <motion.li variants={rowVariants} className="pt-1.5">
               <Button href="/free-audit" className="w-full" onClick={onClose}>
-                Get free audit <ArrowRight />
+                Enquire now <ArrowRight />
               </Button>
             </motion.li>
           </motion.ul>

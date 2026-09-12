@@ -24,7 +24,7 @@ export function CTABand({
             <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <div className="relative">
                 <span aria-hidden className="pointer-events-none absolute -inset-1.5 rounded-pill bg-accent/50 blur-lg motion-safe:animate-pulse-glow" />
-                <Button href="/free-audit" size="lg" className="relative">Get your free audit <ArrowRight /></Button>
+                <Button href="/free-audit" size="lg" className="relative">Get your free quote <ArrowRight /></Button>
               </div>
               <WhatsAppButton
                 label="Message on WhatsApp"

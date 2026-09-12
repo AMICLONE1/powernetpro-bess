@@ -18,7 +18,7 @@ export function StickyMobileCTA() {
         <WhatsAppButton label="WhatsApp" className="h-11 px-0 text-caption" />
         <CallButton label="Call" className="h-11 px-0 text-caption" />
         <Link href="/free-audit" className="inline-flex h-11 items-center justify-center rounded-pill bg-accent px-0 text-caption font-semibold text-white">
-          Free audit
+          Free quote
         </Link>
       </div>
     </div>

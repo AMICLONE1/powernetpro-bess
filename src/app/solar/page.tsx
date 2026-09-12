@@ -31,7 +31,7 @@ export default function SolarPage() {
         media={{ src: media.rooftopSolar, alt: "Rooftop solar array" }}
       >
         <div className="flex flex-wrap gap-3">
-          <Button href="/free-audit" size="lg">Get your free audit <ArrowRight /></Button>
+          <Button href="/free-audit" size="lg">Get your free quote <ArrowRight /></Button>
           <Button href="/battery-storage" size="lg" variant="secondary">See storage</Button>
         </div>
       </PageHero>
