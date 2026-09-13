@@ -2,7 +2,7 @@ import { buildMetadata } from "@/lib/seo";
 import { AuditForm } from "@/components/audit/AuditForm";
 import { WhatsAppButton, CallButton } from "@/components/ui/ContactButtons";
 import { Reveal } from "@/components/motion/Reveal";
-import { siteConfig } from "@/lib/site-config";
+import { siteConfig, telLink } from "@/lib/site-config";
 
 export const metadata = buildMetadata({
   title: "Free Backup & Demand Cost Audit",
@@ -104,6 +104,22 @@ export default function FreeAuditPage() {
                     <WhatsAppButton label="Send bills on WhatsApp" prefilled={`Hi ${siteConfig.company}! I'd like a free quote for battery backup / solar for my place. I can share my electricity bill — how do I send it?`} className="w-full" />
                     <CallButton label={`Call ${siteConfig.phone.display}`} className="w-full" variant="ghost" />
                   </div>
+
+                  {/* Direct contact details (consolidated from the old /contact page). */}
+                  <dl className="mt-6 space-y-3 border-t border-hairline pt-5 text-body">
+                    <div className="flex justify-between gap-3">
+                      <dt className="text-caption uppercase tracking-wide text-ink-3">Phone</dt>
+                      <dd><a href={telLink()} className="font-medium text-ink hover:text-accent">{siteConfig.phone.display}</a></dd>
+                    </div>
+                    <div className="flex justify-between gap-3">
+                      <dt className="text-caption uppercase tracking-wide text-ink-3">Email</dt>
+                      <dd><a href={`mailto:${siteConfig.email.info}`} className="font-medium text-ink hover:text-accent">{siteConfig.email.info}</a></dd>
+                    </div>
+                    <div className="flex justify-between gap-3">
+                      <dt className="text-caption uppercase tracking-wide text-ink-3">Service area</dt>
+                      <dd className="text-right font-medium text-ink">{siteConfig.address.serviceArea}</dd>
+                    </div>
+                  </dl>
                 </div>
 
                 <div className="rounded-card-lg border border-hairline bg-bg p-6">

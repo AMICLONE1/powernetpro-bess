@@ -32,7 +32,8 @@ export const footerNav = {
   Company: [
     { label: "About", href: "/about" },
     { label: "Projects", href: "/projects" },
-    { label: "Contact", href: "/contact" },
+    // Contact is consolidated into the Enquire (free-audit) page.
+    { label: "Contact", href: "/free-audit" },
     { label: "Sizing Calculator", href: "/sizing-calculator" },
   ],
   Legal: [

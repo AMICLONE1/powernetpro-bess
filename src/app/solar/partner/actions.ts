@@ -20,7 +20,7 @@ export async function submitPartner(values: unknown): Promise<PartnerSubmitResul
   try {
     await Promise.allSettled([
       sendLeadNotification({
-        to: siteConfig.email.info,
+        to: siteConfig.email.partner,
         kind: "Solar EPC partner",
         reference,
         replyTo: d.email,

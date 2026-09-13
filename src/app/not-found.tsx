@@ -12,7 +12,7 @@ const quickLinks = [
   { label: "Sizing Calculator", href: "/sizing-calculator" },
   { label: "Projects", href: "/projects" },
   { label: "About", href: "/about" },
-  { label: "Contact", href: "/contact" },
+  { label: "Contact", href: "/free-audit" },
 ];
 
 export default function NotFound() {

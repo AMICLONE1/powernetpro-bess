@@ -317,9 +317,8 @@ function MobileMenu({ pathname, onClose }: { pathname: string; onClose: () => vo
                 <MobileRow key={item.href} href={item.href} label={item.label} icon={item.icon} active={pathname === item.href} onClose={onClose} />
               ),
             )}
-            {/* Contact — utility link expected in the top-level mobile menu. */}
-            <MobileRow href="/contact" label="Contact" icon="phone" active={pathname === "/contact"} onClose={onClose} />
-
+            {/* Contact is consolidated into Enquire now (free-audit), which
+                carries the contact details — so the CTA below covers it. */}
             <motion.li variants={rowVariants} className="pt-1.5">
               <Button href="/free-audit" className="w-full" onClick={onClose}>
                 Enquire now <ArrowRight />

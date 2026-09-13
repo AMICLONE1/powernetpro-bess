@@ -2,8 +2,10 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Expandable } from "@/components/ui/Expandable";
 import { Reveal } from "@/components/motion/Reveal";
 import { Button, ArrowRight } from "@/components/ui/Button";
+import { WhatsAppButton } from "@/components/ui/ContactButtons";
 import { faqs } from "@/lib/content";
 import { faqJsonLd } from "@/lib/seo";
+import { siteConfig } from "@/lib/site-config";
 
 /** FAQ section — objection-handling (conversion) + FAQPage schema (SEO). */
 export function FAQ() {
@@ -19,7 +21,7 @@ export function FAQ() {
             />
             <div className="mt-7 flex flex-wrap gap-3">
               <Button href="/free-audit">Get a free quote <ArrowRight /></Button>
-              <Button href="/contact" variant="secondary">Contact us</Button>
+              <WhatsAppButton label="Chat on WhatsApp" prefilled={`Hi ${siteConfig.company}! I have a question about your battery backup and solar systems.`} variant="ghost" />
             </div>
           </div>
 
