@@ -28,7 +28,7 @@ export function CTABand({
               </div>
               <WhatsAppButton
                 label="Chat on WhatsApp"
-                prefilled="Hi PowerNetPro, I'd like a free energy audit."
+                prefilled="Hi PowerNetPro Pvt. Ltd.! I'd like a free quote for battery backup / solar for my place. Can you help?"
                 variant="ghost"
                 className="border-white/25 text-white hover:border-white/50"
               />

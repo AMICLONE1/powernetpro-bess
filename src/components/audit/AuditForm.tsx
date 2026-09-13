@@ -178,7 +178,7 @@ function Confirmation({ reference, hadFiles }: { reference: string; hadFiles: bo
         <span className="font-semibold text-ink">{reference}</span>
       </p>
       <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-        <WhatsAppButton label="Message us on WhatsApp" prefilled={`Hi PowerNetPro, my audit reference is ${reference}.`} />
+        <WhatsAppButton label="Message us on WhatsApp" prefilled={`Hi ${siteConfig.company}! I just submitted my details (reference: ${reference}). I'd like to know the next steps.`} />
         <Button href="/sizing-calculator" variant="secondary">
           Try the sizing calculator
         </Button>

@@ -15,7 +15,7 @@ export function StickyMobileCTA() {
   return (
     <div className="fixed inset-x-0 bottom-0 z-40 border-t-2 border-hairline-2 bg-bg/95 shadow-[0_-10px_30px_-12px_rgba(33,29,24,0.18)] backdrop-blur-md lg:hidden">
       <div className="grid grid-cols-3 gap-2 px-3 py-2.5">
-        <WhatsAppButton label="WhatsApp" className="h-11 px-0 text-caption" />
+        <WhatsAppButton label="WhatsApp" prefilled="Hi PowerNetPro Pvt. Ltd.! I'd like to know more about your battery backup and solar. Can you help?" className="h-11 px-0 text-caption" />
         <CallButton label="Call" className="h-11 px-0 text-caption" />
         <Link href="/free-audit" className="inline-flex h-11 items-center justify-center rounded-pill bg-accent px-0 text-caption font-semibold text-white">
           Free quote

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { cn } from "@/lib/cn";
+import { TiltLogo } from "@/components/ui/TiltLogo";
 
 /**
  * PowerNetPro logo lockup.
@@ -22,19 +23,27 @@ export function Logo({
   showText?: boolean;
 }) {
   const src = onDark ? "/brand/logo-white.png" : "/brand/logo-cropped.png";
+  // Emboss: a soft dark drop-shadow lifts the mark off the surface while a
+  // subtle light highlight on the opposite side reads as a bevel — together
+  // they give real depth. Tuned per background (light header vs. dark footer).
+  const emboss = onDark
+    ? "drop-shadow(0 1px 1px rgba(0,0,0,0.5)) drop-shadow(0 -0.5px 0.5px rgba(255,255,255,0.35))"
+    : "drop-shadow(1px 2px 1.5px rgba(33,29,24,0.28)) drop-shadow(-0.5px -0.5px 0.5px rgba(255,255,255,0.85))";
   return (
     <Link href="/" aria-label="PowerNetPro — home" className={cn("inline-flex items-center", className)}>
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src={src}
-        alt="PowerNetPro"
-        // data-logo-mark lets the hero scene locate this exact box to dock the
-        // giant wordmark onto, and the CSS var lets the scene fade it in only
-        // once the word has arrived (defaults to 1 everywhere else).
-        data-logo-mark={onDark ? undefined : ""}
-        className="h-6 w-auto lg:h-7"
-        style={onDark ? undefined : { opacity: "var(--logo-mark-opacity, 1)" }}
-      />
+      <TiltLogo className="inline-flex">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={src}
+          alt="PowerNetPro"
+          // data-logo-mark lets the hero scene locate this exact box to dock the
+          // giant wordmark onto, and the CSS var lets the scene fade it in only
+          // once the word has arrived (defaults to 1 everywhere else).
+          data-logo-mark={onDark ? undefined : ""}
+          className="h-6 w-auto lg:h-7"
+          style={{ filter: emboss, ...(onDark ? {} : { opacity: "var(--logo-mark-opacity, 1)" }) }}
+        />
+      </TiltLogo>
     </Link>
   );
 }

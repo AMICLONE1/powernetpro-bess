@@ -101,7 +101,7 @@ export default function FreeAuditPage() {
                   <h2 className="font-display text-h3 text-ink">Prefer to talk?</h2>
                   <p className="mt-2 text-body text-ink-2">Send your bills straight to us on WhatsApp, or call and we&apos;ll take it from there.</p>
                   <div className="mt-5 flex flex-col gap-3">
-                    <WhatsAppButton label="Send bills on WhatsApp" prefilled="Hi PowerNetPro, I'd like a free energy audit." className="w-full" />
+                    <WhatsAppButton label="Send bills on WhatsApp" prefilled={`Hi ${siteConfig.company}! I'd like a free quote for battery backup / solar for my place. I can share my electricity bill — how do I send it?`} className="w-full" />
                     <CallButton label={`Call ${siteConfig.phone.display}`} className="w-full" variant="ghost" />
                   </div>
                 </div>
