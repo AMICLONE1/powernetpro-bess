@@ -116,6 +116,55 @@
     -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
     mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
   }
+
+  /* Warm text-glitch on hover. Two coloured copies of the text (from data-text)
+     sit behind it; on hover they briefly split apart (terracotta one way, gold
+     the other) with a quick clip jitter, then settle. Subtle + on-brand — a
+     short energy flicker, not a chaotic scramble. Holds still under
+     reduced-motion. */
+  .glitch {
+    position: relative;
+    display: inline-block;
+  }
+  .glitch::before,
+  .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0;
+    /* inherit all type metrics so the copies line up exactly */
+    font: inherit;
+    letter-spacing: inherit;
+  }
+  .glitch::before { color: theme("colors.accent"); }   /* terracotta */
+  .glitch::after  { color: theme("colors.gold"); }     /* gold */
+
+  @media (prefers-reduced-motion: no-preference) {
+    .glitch:hover::before {
+      opacity: 0.85;
+      animation: glitch-a 0.36s steps(2, end) 1;
+    }
+    .glitch:hover::after {
+      opacity: 0.85;
+      animation: glitch-b 0.36s steps(2, end) 1;
+    }
+  }
+
+  @keyframes glitch-a {
+    0%   { transform: translate(0, 0); clip-path: inset(0 0 0 0); }
+    20%  { transform: translate(-2px, 1px); clip-path: inset(0 0 62% 0); }
+    45%  { transform: translate(2px, -1px); clip-path: inset(55% 0 0 0); }
+    70%  { transform: translate(-1px, 0); clip-path: inset(20% 0 40% 0); }
+    100% { transform: translate(0, 0); clip-path: inset(0 0 0 0); opacity: 0; }
+  }
+  @keyframes glitch-b {
+    0%   { transform: translate(0, 0); clip-path: inset(0 0 0 0); }
+    20%  { transform: translate(2px, -1px); clip-path: inset(0 0 55% 0); }
+    45%  { transform: translate(-2px, 1px); clip-path: inset(48% 0 0 0); }
+    70%  { transform: translate(1px, 0); clip-path: inset(35% 0 25% 0); }
+    100% { transform: translate(0, 0); clip-path: inset(0 0 0 0); opacity: 0; }
+  }
 }
 
 /* Themed range slider. The filled track is set inline via a background-image

@@ -204,7 +204,9 @@ export function FooterWordmark({ text = "PowerNetPro" }: { text?: string }) {
   useEffect(() => {
     const wrap = wrapRef.current;
     const canvas = canvasRef.current;
-    const ctx = canvas?.getContext("2d");
+    // willReadFrequently: this canvas is sampled via getImageData on every
+    // (re)build, so the hint keeps those readbacks on a fast CPU-backed path.
+    const ctx = canvas?.getContext("2d", { willReadFrequently: true });
     if (!wrap || !canvas || !ctx) return;
     return runWordmark(wrap, canvas, ctx, text);
   }, [text]);
