@@ -15,11 +15,6 @@ import { siteConfig } from "@/lib/site-config";
  * throwing. Destination inboxes come from siteConfig.email.
  */
 
-const apiKey = process.env.RESEND_API_KEY;
-const FROM = process.env.EMAIL_FROM || `PowerNetPro <noreply@${hostFromUrl(siteConfig.url)}>`;
-
-const resend = apiKey ? new Resend(apiKey) : null;
-
 function hostFromUrl(url: string): string {
   try {
     return new URL(url).hostname.replace(/^www\./, "");
@@ -52,12 +47,16 @@ type SendArgs = {
  * not fail the visitor's submission (they still get their reference + we log).
  */
 export async function sendEmail({ to, subject, html, text, replyTo }: SendArgs): Promise<boolean> {
-  if (!resend) {
-    console.info("[email: no RESEND_API_KEY — not sent]", { to, subject });
+  // Read env at call time (not module load) so the runtime value is always used.
+  const apiKey = process.env.RESEND_API_KEY;
+  const FROM = process.env.EMAIL_FROM || `PowerNetPro <noreply@${hostFromUrl(siteConfig.url)}>`;
+  if (!apiKey) {
+    console.error("[email] RESEND_API_KEY missing at runtime — not sent", { to, subject });
     return false;
   }
   try {
-    const { error } = await resend.emails.send({
+    const resend = new Resend(apiKey);
+    const { data, error } = await resend.emails.send({
       from: FROM,
       to,
       subject,
@@ -65,6 +64,7 @@ export async function sendEmail({ to, subject, html, text, replyTo }: SendArgs):
       text,
       ...(replyTo ? { replyTo } : {}),
     });
+    if (!error) console.info("[email] sent OK", { to, subject, id: data?.id });
     if (error) {
       console.error("[email: Resend error]", error);
       return false;
