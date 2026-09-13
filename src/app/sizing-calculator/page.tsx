@@ -2,7 +2,7 @@ import { buildMetadata } from "@/lib/seo";
 import { SizingCalculator } from "@/components/calculator/SizingCalculator";
 
 export const metadata = buildMetadata({
-  title: "Sizing Calculator",
+  title: "Battery & Inverter Sizing Calculator",
   description:
     "Estimate the battery storage capacity and inverter rating your home, office or factory needs. A quick starting point before your free PowerNetPro audit.",
   path: "/sizing-calculator",

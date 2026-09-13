@@ -1,19 +1,18 @@
 /**
- * Backend service interfaces + MOCK implementations.
+ * Backend service seams (TRD 1, 5, 6):
+ *   - notifySales   -> LIVE: emails the audit lead to audit@ via Resend
+ *   - acknowledge   -> LIVE: emails the enquirer a confirmation via Resend
+ *   - storeLead     -> STILL MOCK: persist to database / spreadsheet / CRM
+ *   - registerBills -> STILL MOCK: S3 pre-signed uploads (SSE, 12-mo deletion)
  *
- * These are the seams where real infrastructure plugs in (TRD 1, 5, 6):
- *   - storeLead     -> database / spreadsheet / CRM
- *   - storeBills    -> S3-compatible object storage w/ pre-signed URLs, SSE,
- *                      12-month lifecycle deletion, virus scan, EXIF strip
- *   - notifySales   -> lead notification to sales email + WhatsApp
- *   - acknowledge   -> transactional email to the enquirer (Resend / SES)
- *
- * Nothing here writes personal data anywhere real. The mocks log and return
- * success so the full UX (validation → confirmation) can be exercised end to
- * end. DO NOT route real bill uploads through email — see DPDP note in TRD 5.
+ * Email goes through src/server/email.ts (Resend). With no RESEND_API_KEY set,
+ * emails are logged, not sent, so dev/preview still works end to end.
+ * DO NOT route real bill uploads through email — see DPDP note in TRD 5.
  */
 
 import { AuditFormValues } from "@/lib/audit-schema";
+import { siteConfig } from "@/lib/site-config";
+import { sendLeadNotification, sendAutoReply } from "@/server/email";
 
 export type LeadRecord = AuditFormValues & {
   reference: string;
@@ -41,16 +40,29 @@ export async function storeLead(record: LeadRecord): Promise<void> {
 }
 
 export async function notifySales(record: LeadRecord): Promise<void> {
-  // TODO(prod): send to sales email + WhatsApp Business API (PRD F-11).
-  console.info(
-    `[mock notifySales] New audit lead ${record.reference} — ${record.propertyType} in ${record.location}`,
-  );
+  // Audit leads go to the audit inbox (siteConfig.email.sales = audit@…).
+  await sendLeadNotification({
+    to: siteConfig.email.sales,
+    kind: "Free audit",
+    reference: record.reference,
+    replyTo: record.email || undefined,
+    rows: [
+      { label: "Name", value: record.name },
+      { label: "Phone", value: record.phone },
+      { label: "Email", value: record.email || "—" },
+      { label: "Property type", value: record.propertyType },
+      { label: "Location", value: record.location },
+      { label: "Current backup", value: record.currentBackup || "—" },
+      { label: "Bills attached", value: record.fileCount },
+      { label: "Submitted", value: record.submittedAt },
+    ],
+  });
 }
 
 export async function acknowledge(record: LeadRecord): Promise<void> {
-  // TODO(prod): transactional acknowledgement email to enquirer (PRD F-12).
+  // Confirmation email to the enquirer — only if they gave one (PRD F-12).
   if (record.email) {
-    console.info(`[mock acknowledge] -> ${record.email} (ref ${record.reference})`);
+    await sendAutoReply({ to: record.email, name: record.name, reference: record.reference });
   }
 }
 

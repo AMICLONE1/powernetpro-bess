@@ -9,7 +9,7 @@ import { Media } from "@/components/ui/Media";
 import { Reveal } from "@/components/motion/Reveal";
 
 export const metadata = buildMetadata({
-  title: "Lithium vs Lead-Acid",
+  title: "Lithium vs Lead-Acid Batteries — Which to Choose",
   description:
     "An honest comparison of lithium (LFP) and lead-acid batteries. PowerNetPro supplies both — and tells you which is the sensible choice for your duty and budget.",
   path: "/lithium-vs-lead-acid",

@@ -83,6 +83,54 @@ export function localBusinessJsonLd() {
   };
 }
 
+/**
+ * BreadcrumbList structured data — lets Google show a "Home › Battery Storage"
+ * trail in the result instead of a raw URL. Pass the trail as {name, path}.
+ */
+export function breadcrumbJsonLd(trail: { name: string; path: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: trail.map((c, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: c.name,
+      item: `${siteConfig.url}${c.path}`,
+    })),
+  };
+}
+
+/**
+ * Service structured data — declares a concrete service the business offers,
+ * tied to the LocalBusiness and its service area. Used on the battery & solar
+ * pages so Google understands exactly what's on offer, where.
+ */
+export function serviceJsonLd({
+  name,
+  description,
+  path,
+  serviceType,
+}: {
+  name: string;
+  description: string;
+  path: string;
+  serviceType: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name,
+    description,
+    serviceType,
+    url: `${siteConfig.url}${path}`,
+    provider: { "@id": `${siteConfig.url}/#business` },
+    areaServed: [
+      { "@type": "City", name: "Pune" },
+      { "@type": "State", name: "Maharashtra" },
+    ],
+  };
+}
+
 /** FAQPage structured data — rich results eligibility. */
 export function faqJsonLd(items: { q: string; a: string }[]) {
   return {

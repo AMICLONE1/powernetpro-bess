@@ -9,7 +9,7 @@ import { Icon } from "@/components/ui/Icons";
 import { media } from "@/lib/media";
 
 export const metadata = buildMetadata({
-  title: "About",
+  title: "About Us — Energy Storage Company in Pune",
   description:
     "PowerNetPro Private Limited — engineering-led battery energy storage for homes, societies and business across Pune & Maharashtra. Our mission, vision, values and company registration details.",
   path: "/about",

@@ -6,7 +6,7 @@ import { Button, ArrowRight } from "@/components/ui/Button";
 import { Reveal } from "@/components/motion/Reveal";
 
 export const metadata = buildMetadata({
-  title: "Contact",
+  title: "Contact — Battery & Solar Enquiries, Pune",
   description:
     "Contact PowerNetPro for battery storage and solar EPC across Pune and Maharashtra. Call, WhatsApp or request a free audit.",
   path: "/contact",

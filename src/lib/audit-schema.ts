@@ -37,7 +37,9 @@ export const auditSchema = z.object({
     errorMap: () => ({ message: "Select a property type" }),
   }),
   location: z.string().min(2, "Enter your area within Pune / Maharashtra"),
-  currentBackup: z.enum(BACKUP_TYPES).optional(),
+  // Optional select: the <select> submits "" when nothing is picked, so accept
+  // that alongside the enum values (mirrors how `email` handles empty).
+  currentBackup: z.enum(BACKUP_TYPES).optional().or(z.literal("")),
   // Consent MUST be explicitly ticked (DPDP — PRD 4.4, TRD 5).
   consent: z.literal(true, {
     errorMap: () => ({ message: "Please provide consent to proceed" }),

@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { buildMetadata } from "@/lib/seo";
+import { buildMetadata, serviceJsonLd, breadcrumbJsonLd } from "@/lib/seo";
+import { JsonLd } from "@/components/ui/JsonLd";
 import { PageHero } from "@/components/sections/PageHero";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { CTABand } from "@/components/sections/CTABand";
@@ -8,7 +9,7 @@ import { Button, ArrowRight } from "@/components/ui/Button";
 import { media } from "@/lib/media";
 
 export const metadata = buildMetadata({
-  title: "Solar EPC",
+  title: "Solar Installation & EPC in Pune",
   description:
     "Rooftop solar EPC and solar-plus-storage from PowerNetPro. Design, supply, install and commission — sized to your roof and load, with net-metering guidance.",
   path: "/solar",
@@ -24,6 +25,16 @@ const epcSteps = [
 export default function SolarPage() {
   return (
     <>
+      <JsonLd data={serviceJsonLd({
+        name: "Solar EPC — design, supply, install, commission",
+        description: "Rooftop solar and solar-plus-storage EPC: design, supply of tier-1 components, certified installation, commissioning and net-metering guidance.",
+        path: "/solar",
+        serviceType: "Solar panel installation",
+      })} />
+      <JsonLd data={breadcrumbJsonLd([
+        { name: "Home", path: "/" },
+        { name: "Solar EPC", path: "/solar" },
+      ])} />
       <PageHero
         kicker="Solar EPC"
         title="Solar that pays, storage that protects"

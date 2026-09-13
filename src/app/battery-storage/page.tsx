@@ -1,4 +1,5 @@
-import { buildMetadata } from "@/lib/seo";
+import { buildMetadata, serviceJsonLd, breadcrumbJsonLd } from "@/lib/seo";
+import { JsonLd } from "@/components/ui/JsonLd";
 import { PageHero } from "@/components/sections/PageHero";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { SpecTable } from "@/components/ui/SpecTable";
@@ -10,7 +11,7 @@ import { operatingModes } from "@/lib/content";
 import { media } from "@/lib/media";
 
 export const metadata = buildMetadata({
-  title: "Battery Storage (BESS)",
+  title: "Battery Energy Storage (BESS) in Pune",
   description:
     "How PowerNetPro battery energy storage works — LFP cells, BMS, hybrid inverter, EMS and safety architecture. Engineered hardware, explained plainly.",
   path: "/battery-storage",
@@ -99,6 +100,16 @@ const tiers = [
 export default function BatteryStoragePage() {
   return (
     <>
+      <JsonLd data={serviceJsonLd({
+        name: "Battery Energy Storage System (BESS) installation",
+        description: "Design, supply, installation and commissioning of lithium (LFP) and lead-acid battery energy storage for homes, housing societies, offices and industry.",
+        path: "/battery-storage",
+        serviceType: "Battery energy storage installation",
+      })} />
+      <JsonLd data={breadcrumbJsonLd([
+        { name: "Home", path: "/" },
+        { name: "Battery Storage", path: "/battery-storage" },
+      ])} />
       <PageHero
         kicker="Battery storage"
         title="Engineered hardware, not a commodity box"

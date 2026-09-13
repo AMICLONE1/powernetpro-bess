@@ -4,7 +4,7 @@ import { CTABand } from "@/components/sections/CTABand";
 import { ProjectsTable } from "@/components/sections/ProjectsTable";
 
 export const metadata = buildMetadata({
-  title: "Projects",
+  title: "Projects — Battery Storage Installs in Pune",
   description:
     "Battery storage systems delivered by PowerNetPro across Pune and Maharashtra — listed by type, size and configuration.",
   path: "/projects",

@@ -7,7 +7,7 @@ import { Reveal } from "@/components/motion/Reveal";
 import { media } from "@/lib/media";
 
 export const metadata = buildMetadata({
-  title: "Safety & Standards",
+  title: "Battery Safety & Standards",
   description:
     "How PowerNetPro engineers safety into every battery storage system — LFP chemistry, multi-level protection, thermal management and certified installation.",
   path: "/safety",
