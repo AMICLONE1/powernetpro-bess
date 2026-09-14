@@ -22,7 +22,7 @@ export function Logo({
   onDark?: boolean;
   showText?: boolean;
 }) {
-  const src = onDark ? "/brand/logo-white.png" : "/brand/logo-cropped.png";
+  const src = onDark ? "/brand/logo-white.webp" : "/brand/logo-cropped.webp";
   // Emboss: a soft dark drop-shadow lifts the mark off the surface while a
   // subtle light highlight on the opposite side reads as a bevel — together
   // they give real depth. Tuned per background (light header vs. dark footer).

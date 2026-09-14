@@ -70,6 +70,7 @@ export function Hero() {
             ratio="16/7"
             rounded="card-lg"
             className="relative shadow-lift"
+            priority
           />
         </Reveal>
       </div>

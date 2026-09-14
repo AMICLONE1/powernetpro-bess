@@ -22,6 +22,7 @@ export function Media({
   className,
   rounded = "card",
   overlay = false,
+  priority = false,
 }: {
   src?: string;
   alt?: string;
@@ -32,6 +33,8 @@ export function Media({
   className?: string;
   rounded?: "none" | "card" | "card-lg" | "pill";
   overlay?: boolean;
+  /** LCP images (e.g. the hero) — load eagerly with high priority, not lazy. */
+  priority?: boolean;
 }) {
   const radius =
     rounded === "none" ? "" : rounded === "pill" ? "rounded-pill" : rounded === "card-lg" ? "rounded-card-lg" : "rounded-card";
@@ -68,7 +71,9 @@ export function Media({
               ref={imgRef}
               src={src}
               alt={alt}
-              loading="lazy"
+              loading={priority ? "eager" : "lazy"}
+              fetchPriority={priority ? "high" : "auto"}
+              decoding="async"
               onLoad={() => setLoaded(true)}
               onError={() => setLoaded(true)}
               className="absolute inset-0 h-full w-full object-cover transition-transform duration-[900ms] ease-out-expo motion-safe:group-hover/media:scale-[1.04]"
