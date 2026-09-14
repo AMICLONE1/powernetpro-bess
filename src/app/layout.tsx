@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Space_Grotesk, Bodoni_Moda } from "next/font/google";
-import Script from "next/script";
 import "./globals.css";
 import { siteConfig } from "@/lib/site-config";
 import { localBusinessJsonLd } from "@/lib/seo";
@@ -9,6 +8,8 @@ import { Footer } from "@/components/layout/Footer";
 import { StickyMobileCTA } from "@/components/layout/StickyMobileCTA";
 import { BackToTop } from "@/components/layout/BackToTop";
 import { SmoothCursor } from "@/components/motion/SmoothCursor";
+import { LoadingScreen } from "@/components/layout/LoadingScreen";
+import { CookieConsent } from "@/components/layout/CookieConsent";
 
 // Body: Inter. Display headlines: Space Grotesk (modern geometric sans — clean,
 // distinctive and highly legible at every size).
@@ -63,6 +64,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${display.variable} ${serif.variable}`} suppressHydrationWarning>
       <body>
+        <LoadingScreen />
         <a href="#main" className="sr-only sr-only-focusable">
           Skip to content
         </a>
@@ -79,15 +81,9 @@ export default function RootLayout({
         <BackToTop />
         <SmoothCursor />
 
-        {/* GA4 — activates only when NEXT_PUBLIC_GA_ID is set (TRD 7.2). */}
-        {gaId && (
-          <>
-            <Script src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`} strategy="afterInteractive" />
-            <Script id="ga4" strategy="afterInteractive">
-              {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${gaId}');`}
-            </Script>
-          </>
-        )}
+        {/* Cookie consent — GA4 loads here ONLY after the visitor accepts
+            (DPDP/GDPR). Nothing tracks until then. */}
+        <CookieConsent gaId={gaId} />
       </body>
     </html>
   );
