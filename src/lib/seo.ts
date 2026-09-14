@@ -80,6 +80,8 @@ export function localBusinessJsonLd() {
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "Solar EPC — design, supply, install, commission" } },
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "Free backup & demand cost audit" } },
     ],
+    // Social profiles — ties the business entity to its social presence.
+    sameAs: [siteConfig.social.linkedin, siteConfig.social.instagram].filter(Boolean),
   };
 }
 

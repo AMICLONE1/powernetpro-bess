@@ -43,9 +43,8 @@ export const siteConfig = {
   },
 
   social: {
-    // TODO: add real handles when available
-    linkedin: "",
-    instagram: "",
+    linkedin: "https://www.linkedin.com/company/powernetpro",
+    instagram: "https://www.instagram.com/powernetpro",
   },
 
   // Response-time commitment shown on the audit confirmation screen
