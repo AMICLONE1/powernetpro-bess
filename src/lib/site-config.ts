@@ -26,10 +26,10 @@ export const siteConfig = {
   },
 
   address: {
-    street: "Plot No 88, Savkash Nagar, Sahkari Gruhrachna, Kondhwa BK",
-    locality: "Pune",
+    street: "Shradha Complex, Talegaon Chakan Road",
+    locality: "Chakan",
     region: "Maharashtra",
-    postalCode: "411048",
+    postalCode: "410501",
     country: "IN",
     serviceArea: "Pune & Maharashtra",
   },

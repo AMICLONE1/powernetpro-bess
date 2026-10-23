@@ -29,7 +29,7 @@ const drivers = [
   { title: "Impact", body: "Every kWh stored cuts diesel, carbon and energy costs.", icon: "bolt" },
 ];
 
-const registeredOffice = `${siteConfig.address.street}, Pune City, ${siteConfig.address.locality} – ${siteConfig.address.postalCode}, ${siteConfig.address.region}, India`;
+const registeredOffice = `${siteConfig.address.street}, ${siteConfig.address.locality}, Pune – ${siteConfig.address.postalCode}, ${siteConfig.address.region}, India`;
 
 const registration: { k: string; v: string; href?: string }[] = [
   { k: "Legal name", v: siteConfig.registration.legalName },
