@@ -53,6 +53,7 @@ export function localBusinessJsonLd() {
     priceRange: "₹₹",
     identifier: [
       { "@type": "PropertyValue", propertyID: "CIN", value: siteConfig.registration.cin },
+      { "@type": "PropertyValue", propertyID: "GSTIN", value: siteConfig.registration.gst },
       { "@type": "PropertyValue", propertyID: "DPIIT", value: siteConfig.registration.dipp },
     ],
     address: {

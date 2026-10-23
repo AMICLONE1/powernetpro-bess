@@ -34,6 +34,7 @@ const registeredOffice = `${siteConfig.address.street}, ${siteConfig.address.loc
 const registration: { k: string; v: string; href?: string }[] = [
   { k: "Legal name", v: siteConfig.registration.legalName },
   { k: "Corporate Identification Number (CIN)", v: siteConfig.registration.cin },
+  { k: "GST Number (GSTIN)", v: siteConfig.registration.gst },
   { k: "Startup India Recognition (DPIIT)", v: siteConfig.registration.dipp },
   { k: "Registered office", v: registeredOffice },
   { k: "Email", v: siteConfig.email.info, href: `mailto:${siteConfig.email.info}` },

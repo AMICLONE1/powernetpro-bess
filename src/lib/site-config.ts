@@ -39,6 +39,7 @@ export const siteConfig = {
     legalName: "PowerNetPro Private Limited",
     cin: "U35105PN2026PTC253285",
     dipp: "DIPP255899",
+    gst: "27AAQCP8353A1Z7",
     founded: "2026",
   },
 
