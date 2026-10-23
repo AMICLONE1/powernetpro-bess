@@ -143,4 +143,28 @@ export const faqs = [
     q: "Can I add battery storage to my existing solar?",
     a: "Yes. Solar-plus-storage lets you use your own cheap daytime power after dark and through outages. We handle the full EPC and the storage retrofit.",
   },
+  {
+    q: "How long do the batteries last and what warranty do you offer?",
+    a: "Lithium (LFP) battery storage from PowerNetPro is rated for thousands of charge cycles and a 10+ year design life. Lead-acid batteries last roughly 3–5 years. Warranty terms are confirmed in your quote; the free audit covers the exact figures for your chosen system.",
+  },
+  {
+    q: "How fast does the backup switch on during a power cut?",
+    a: "Switchover is under 20 milliseconds — fast enough that lights, fans, computers and sensitive equipment keep running without a visible flicker or reboot. It is effectively seamless, unlike a diesel generator that takes seconds to start.",
+  },
+  {
+    q: "How long does installation take?",
+    a: "A typical home battery storage installation is completed in one to two days after the site survey. Larger commercial and industrial systems take longer depending on capacity and electrical work. We handle design, supply, installation, wiring, earthing and commissioning end to end.",
+  },
+  {
+    q: "Is lithium battery storage safe for homes?",
+    a: "Yes. PowerNetPro uses lithium iron phosphate (LFP) chemistry, the safest lithium type — it is thermally stable and does not catch fire the way other lithium batteries can. Every system includes a battery management system (BMS), multi-level electrical protection and certified installation.",
+  },
+  {
+    q: "Can battery storage lower my electricity bill for a business?",
+    a: "Yes. For offices, commercial buildings and industry, battery storage shaves peak demand, shifts load away from expensive tariff windows, and protects processes from voltage dips and outages — which reduces demand charges and downtime. The free audit models the savings for your specific tariff and load.",
+  },
+  {
+    q: "Do you help with solar net-metering and subsidies?",
+    a: "Yes. For solar EPC we design the system to your roof and consumption and guide you through net-metering paperwork with your DISCOM. We advise on applicable government subsidies and incentives as part of the proposal.",
+  },
 ] as const;
